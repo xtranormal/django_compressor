@@ -1,14 +1,11 @@
 from compressor.conf import settings
 from compressor.base import Compressor, SOURCE_HUNK, SOURCE_FILE
-from compressor.exceptions import UncompressableFileError
 
 
 class JsCompressor(Compressor):
-    template_name = "compressor/js.html"
-    template_name_inline = "compressor/js_inline.html"
 
-    def __init__(self, content=None, output_prefix="js", context=None):
-        super(JsCompressor, self).__init__(content, output_prefix, context)
+    def __init__(self, content=None, output_prefix="js", context=None, opts=None):
+        super(JsCompressor, self).__init__(content, output_prefix, context, opts)
         self.filters = list(settings.COMPRESS_JS_FILTERS)
         self.type = output_prefix
 
