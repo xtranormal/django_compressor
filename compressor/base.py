@@ -136,7 +136,7 @@ class Compressor(object):
                 return fd.read()
             except IOError, e:
                 raise UncompressableFileError("IOError while processing "
-                                               "'%s': %s" % (filename, e))
+                                              "'%s': %s" % (filename, e))
             except UnicodeDecodeError, e:
                 raise UncompressableFileError("UnicodeDecodeError while "
                                               "processing '%s' with "
@@ -170,7 +170,7 @@ class Compressor(object):
         bunch of precompiled and/or rendered hunks.
         """
         enabled = settings.COMPRESS_ENABLED or forced
-        group_first = getattr(self, 'opts', None) and self.opts.get('group_first', 'false').lowercase() == 'true'
+        group_first = self.opts.get('group_first', 'false').lower() == 'true'
         contents = group_first and self.group_contents() or self.split_contents()
 
         for kind, value, basename, elems in contents:

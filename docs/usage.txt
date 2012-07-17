@@ -122,6 +122,14 @@ precompilers and filters, e.g.:
     <script type="text/javascript" charset="utf-8">obj.value = "value";</script>
     {% endcompress %}
 
+The following options are currently used by django_compressor:
+
+group_first
+    If true, the django_compressor will concatenate files of like types before passing them to
+    precompilers and filters.  This could be used, for instance, to allow separately maintained
+    files to be processed together, as one might desire if they are maintaining a 'mixins.less'
+    separate from page-specific .less files
+
 .. _memcached: http://memcached.org/
 .. _caching documentation: http://docs.djangoproject.com/en/1.2/topics/cache/#memcached
 
